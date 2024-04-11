@@ -1,0 +1,281 @@
+object Form1: TForm1
+  Left = 768
+  Height = 315
+  Top = 215
+  Width = 576
+  AutoSize = True
+  BorderStyle = bsDialog
+  BorderWidth = 10
+  Caption = 'Генеративная нейронная сеть Хопфилда (Ионисян А.С.)'
+  ClientHeight = 315
+  ClientWidth = 576
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '2.0.12.0'
+  object Bevel1: TBevel
+    Left = 433
+    Height = 128
+    Top = 0
+    Width = 128
+  end
+  object Bevel_receptors: TBevel
+    Left = 289
+    Height = 128
+    Top = 0
+    Width = 128
+  end
+  object PB_receptors: TPaintBox
+    Left = 289
+    Height = 128
+    Top = 0
+    Width = 128
+    ParentFont = False
+    OnPaint = PB_receptorsPaint
+  end
+  object Label2: TLabel
+    Left = 289
+    Height = 17
+    Top = 133
+    Width = 71
+    Caption = 'Рецептор'
+    ParentColor = False
+    ParentFont = False
+  end
+  object PB_generator: TPaintBox
+    Left = 433
+    Height = 128
+    Top = 0
+    Width = 128
+    ParentFont = False
+    OnPaint = PB_generatorPaint
+  end
+  object Label_Layer3: TLabel
+    Left = 433
+    Height = 17
+    Top = 133
+    Width = 72
+    Caption = 'Art-образ'
+    ParentColor = False
+    ParentFont = False
+  end
+  object BTN_s_clear_black: TButton
+    Left = 289
+    Height = 20
+    Top = 177
+    Width = 130
+    Caption = 'Очистить РП (Ч)'
+    OnClick = BTN_s_clear_blackClick
+    TabOrder = 0
+  end
+  object Edit_N_neurons: TEdit
+    Left = 16
+    Height = 30
+    Top = 24
+    Width = 97
+    TabOrder = 1
+    Text = '256'
+  end
+  object Label3: TLabel
+    Left = 18
+    Height = 17
+    Top = 0
+    Width = 75
+    Caption = 'Нейронов'
+    ParentColor = False
+  end
+  object Edit_contrast: TEdit
+    Left = 433
+    Height = 30
+    Top = 159
+    Width = 72
+    TabOrder = 2
+    Text = '400'
+  end
+  object CB_contrast: TCheckBox
+    Left = 433
+    Height = 23
+    Top = 191
+    Width = 121
+    Caption = 'Контраст (%)'
+    OnChange = CB_contrastChange
+    TabOrder = 3
+  end
+  object BTN_samples_load: TButton
+    Left = 16
+    Height = 28
+    Top = 56
+    Width = 240
+    Caption = 'Загрузить образцы'
+    OnClick = BTN_samples_loadClick
+    TabOrder = 4
+  end
+  object BTN_s_load: TButton
+    Left = 289
+    Height = 20
+    Top = 157
+    Width = 130
+    Caption = 'Загрузить РП'
+    OnClick = BTN_s_loadClick
+    TabOrder = 5
+  end
+  object BTN_s_random: TButton
+    Left = 289
+    Height = 20
+    Top = 260
+    Width = 130
+    Caption = 'Случайное РП'
+    OnClick = BTN_s_randomClick
+    TabOrder = 6
+  end
+  object BTN_create_art: TButton
+    Left = 16
+    Height = 30
+    Top = 232
+    Width = 240
+    Caption = 'Создать Art-образ из РП'
+    OnClick = BTN_create_artClick
+    TabOrder = 7
+  end
+  object BTN_nw_reset_generator: TButton
+    Left = 128
+    Height = 30
+    Top = 24
+    Width = 128
+    Caption = 'Сброс'
+    OnClick = BTN_nw_reset_generatorClick
+    TabOrder = 8
+  end
+  object BTN_s_save: TButton
+    Left = 289
+    Height = 20
+    Top = 280
+    Width = 130
+    Caption = 'Сохранить РП'
+    OnClick = BTN_s_saveClick
+    TabOrder = 9
+  end
+  object BTN_out_gen_save: TButton
+    Left = 435
+    Height = 20
+    Top = 260
+    Width = 130
+    Caption = 'Сохранить образ'
+    OnClick = BTN_out_gen_saveClick
+    TabOrder = 10
+  end
+  object SB_samples: TScrollBar
+    Left = 18
+    Height = 13
+    Top = 112
+    Width = 189
+    DragCursor = crDefault
+    DragKind = dkDock
+    PageSize = 0
+    TabOrder = 11
+    OnChange = SB_samplesChange
+  end
+  object Edit_cur_sample: TEdit
+    Left = 211
+    Height = 30
+    Top = 104
+    Width = 69
+    ReadOnly = True
+    TabOrder = 12
+    Text = '0'
+  end
+  object Label13: TLabel
+    Left = 19
+    Height = 17
+    Top = 88
+    Width = 106
+    Caption = 'Образцы в РП'
+    ParentColor = False
+  end
+  object BTN_train: TButton
+    Left = 16
+    Height = 28
+    Top = 138
+    Width = 240
+    Caption = '(До)обучить нейросеть'
+    OnClick = BTN_trainClick
+    TabOrder = 13
+  end
+  object BTN_s_noise: TButton
+    Left = 289
+    Height = 20
+    Top = 237
+    Width = 130
+    Caption = 'Добавить шум'
+    OnClick = BTN_s_noiseClick
+    TabOrder = 14
+  end
+  object BTN_out_gen_to_receptors: TButton
+    Left = 433
+    Height = 20
+    Top = 280
+    Width = 130
+    Caption = 'Поместить в РП'
+    OnClick = BTN_out_gen_to_receptorsClick
+    TabOrder = 15
+  end
+  object BTN_s_clear_white: TButton
+    Left = 289
+    Height = 20
+    Top = 197
+    Width = 130
+    Caption = 'Очистить РП (Б)'
+    OnClick = BTN_s_clear_whiteClick
+    TabOrder = 16
+  end
+  object BTN_s_clear_gray: TButton
+    Left = 289
+    Height = 20
+    Top = 217
+    Width = 130
+    Caption = 'Очистить РП (С)'
+    OnClick = BTN_s_clear_grayClick
+    TabOrder = 17
+  end
+  object CB_autolevel: TCheckBox
+    Left = 433
+    Height = 23
+    Top = 217
+    Width = 120
+    Caption = 'Автояркость'
+    Checked = True
+    OnChange = CB_autolevelChange
+    State = cbChecked
+    TabOrder = 18
+  end
+  object BTN_tune_art: TButton
+    Left = 16
+    Height = 30
+    Top = 270
+    Width = 240
+    Caption = 'Доработать  Art-образ'
+    OnClick = BTN_tune_artClick
+    TabOrder = 19
+  end
+  object BTN_train_receptor: TButton
+    Left = 16
+    Height = 28
+    Top = 169
+    Width = 240
+    Caption = 'Обучить из РП'
+    OnClick = BTN_train_receptorClick
+    TabOrder = 20
+  end
+  object OpenPictureDialog: TOpenPictureDialog
+    Filter = 'Графические файлы (*.png;*.xpm;*.bmp;*.cur;*.ico;*.icns;*.jpeg;*.jpg;*.jpe;*.jfif;*.tif;*.tiff;*.gif;*.pbm;*.pgm;*.ppm)|*.png;*.xpm;*.bmp;*.cur;*.ico;*.icns;*.jpeg;*.jpg;*.jpe;*.jfif;*.tif;*.tiff;*.gif;*.pbm;*.pgm;*.ppm|Точечные рисунки (*.bmp)|*.bmp|Portable Network Graphic (*.png)|*.png|Pixmap (*.xpm)|*.xpm|Курсор (*.cur)|*.cur|Значок (*.ico)|*.ico|Значок Mac OS X (*.icns)|*.icns|Joint Picture Expert Group (*.jpeg;*.jpg;*.jpe;*.jfif)|*.jpeg;*.jpg;*.jpe;*.jfif|Формат Tagged Image File (*.tif;*.tiff)|*.tif;*.tiff|Формат Graphics Interchange Format (*.gif)|*.gif|Portable PixMap (*.pbm;*.pgm;*.ppm)|*.pbm;*.pgm;*.ppm|Все файлы (*)|*'
+    Options = [ofAllowMultiSelect, ofEnableSizing, ofViewDetail, ofAutoPreview]
+    Left = 528
+    Top = 136
+  end
+  object Timer1: TTimer
+    Enabled = False
+    Interval = 20
+    OnTimer = Timer1Timer
+    Left = 248
+    Top = 200
+  end
+end
